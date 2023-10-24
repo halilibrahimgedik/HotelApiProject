@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyHotel.DataAccessLayer\MyHotel.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\MyHotel.EntityLayer\MyHotel.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
