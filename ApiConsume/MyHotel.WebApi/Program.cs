@@ -1,3 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using MyHotel.BusinessLayer.Abstract;
+using MyHotel.BusinessLayer.Concrete;
+using MyHotel.DataAccessLayer.Abstract;
+using MyHotel.DataAccessLayer.Concrete;
+using MyHotel.DataAccessLayer.Concrete.EfCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +14,31 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Mssql")));
+
+builder.Services.AddScoped<IStaffService,StaffManager>();
+builder.Services.AddScoped<IStaffRepository,EfCoreStaffRepository>();
+
+builder.Services.AddScoped<IServiceService, ServiceManager>();
+builder.Services.AddScoped<IServiceRepository, EfCoreServiceRepository>();
+
+builder.Services.AddScoped<IRoomService, RoomManager>();
+builder.Services.AddScoped<IRoomRepository, EfCoreRoomRepository>();
+
+builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
+builder.Services.AddScoped<ISubscribeRepository, EfCoreSubscribeRepository>();
+
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<ITestimonialRepository, EfCoreTestimonialRepository>();
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("HotelApiCors", opts =>
+    {
+        opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +47,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("HotelApiCors");
 
 app.UseAuthorization();
 
