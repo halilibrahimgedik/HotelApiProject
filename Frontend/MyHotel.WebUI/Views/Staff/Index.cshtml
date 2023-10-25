@@ -1,8 +1,33 @@
-﻿
+﻿@model List<StaffViewModel>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Personel Adı</th>
+            <th>Personel Ünvan</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.StaffId</td>
+            <td>@item.Name</td>
+            <td>@item.Title</td>
+            <td><a href="/Staff/DeleteStaff/@item.StaffId" class="btn btn-danger"> Sil </a></td>
+            <td><a href="/Staff/UpdateStaff/@item.StaffId" class="btn btn-success"> Güncelle </a></td>
+            <td><a href="/Staff/StaffDetail/@item.StaffId" class="btn btn-dark"> Detaylar </a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Staff/AddStaff" class="btn btn-info">Yeni Personel Girişi</a>
 

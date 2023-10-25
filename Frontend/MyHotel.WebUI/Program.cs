@@ -1,7 +1,14 @@
+using MyHotel.BusinessLayer.Abstract;
+using MyHotel.BusinessLayer.Concrete;
+using MyHotel.DataAccessLayer.Abstract;
+using MyHotel.DataAccessLayer.Concrete.EfCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
