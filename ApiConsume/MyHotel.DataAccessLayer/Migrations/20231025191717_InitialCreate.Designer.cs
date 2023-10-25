@@ -11,7 +11,7 @@ using MyHotel.DataAccessLayer.Concrete;
 namespace MyHotel.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20231020201531_InitialCreate")]
+    [Migration("20231025191717_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,7 +83,7 @@ namespace MyHotel.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tıtle")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

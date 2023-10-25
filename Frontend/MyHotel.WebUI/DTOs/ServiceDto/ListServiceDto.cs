@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyHotel.EntityLayer.Concrete
+﻿namespace MyHotel.WebUI.DTOs.ServiceDto
 {
-    public class Service
+    public class ListServiceDto
     {
         public int ServiceId { get; set; }
 
