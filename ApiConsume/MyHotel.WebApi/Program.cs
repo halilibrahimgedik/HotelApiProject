@@ -31,6 +31,9 @@ builder.Services.AddScoped<ISubscribeRepository, EfCoreSubscribeRepository>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialRepository, EfCoreTestimonialRepository>();
 
+builder.Services.AddScoped<IAboutService, AboutManager>();
+builder.Services.AddScoped<IAboutRepository, EfCoreAboutRepository>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddCors(opt =>
