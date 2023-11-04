@@ -16,6 +16,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Mssql")));
 
+builder.Services.AddScoped<IBookingService, BookingManager>();
+builder.Services.AddScoped<IBookingRepository, EfCoreBookingRepository>();
+
 builder.Services.AddScoped<IStaffService,StaffManager>();
 builder.Services.AddScoped<IStaffRepository,EfCoreStaffRepository>();
 
@@ -33,6 +36,8 @@ builder.Services.AddScoped<ITestimonialRepository, EfCoreTestimonialRepository>(
 
 builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IAboutRepository, EfCoreAboutRepository>();
+
+
 
 builder.Services.AddAutoMapper(typeof(Program));
 

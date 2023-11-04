@@ -2,7 +2,7 @@
 
 namespace MyHotel.WebUI.ViewComponents.Default
 {
-    public class BookingViewComponent : ViewComponent
+    public class ReservationViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke() 
         { 
