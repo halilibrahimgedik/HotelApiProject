@@ -17,10 +17,19 @@ namespace MyHotel.BusinessLayer.Concrete
             this.bookingRepository = bookingRepository;
         }
 
+        public void TChangeStatusToApprovedWithId(int id)
+        {
+            bookingRepository.ChangeStatusToApprovedWithId(id);
+        }
 
         public void TAdd(Booking entity)
         {
             bookingRepository.Add(entity);
+        }
+
+        public void TChangeStatusWithApproved(Booking booking)
+        {
+            bookingRepository.ChangeStatusWithApproved(booking);
         }
 
         public void TDelete(Booking entity)

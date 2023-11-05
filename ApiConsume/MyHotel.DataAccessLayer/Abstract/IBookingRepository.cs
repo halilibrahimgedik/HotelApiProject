@@ -9,6 +9,8 @@ namespace MyHotel.DataAccessLayer.Abstract
 {
     public interface IBookingRepository : IGenericRepository<Booking>
     {
+        void ChangeStatusWithApproved(Booking booking);
 
+        void ChangeStatusToApprovedWithId(int id);
     }
 }

@@ -30,6 +30,17 @@ namespace MyHotel.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBooking(AddBookingDto dto)
         {
+            // name alanlarını düzeltelim
+            string fullName = dto.Name; 
+            string[] nameParts = fullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < nameParts.Length; i++)
+            {
+                nameParts[i] = char.ToUpper(nameParts[i][0]) + nameParts[i].Substring(1);
+            }
+
+            dto.Name = string.Join(" ", nameParts);
+
             dto.Status = "Onay Bekliyor";
 
             var client = httpClientFactory.CreateClient();
@@ -42,7 +53,8 @@ namespace MyHotel.WebUI.Controllers
                 return RedirectToAction("Index");
             }
 
-            return PartialView();
+            return View();
+
         }
     }
 }

@@ -50,5 +50,21 @@ namespace MyHotel.WebApi.Controllers
             var booking = bookingService.TGetById(id);
             return Ok(booking);
         }
+
+
+
+        [HttpPut("ChangeStatusWithApproved")]
+        public IActionResult ChangeStatusWithApproved(Booking booking)
+        {
+            bookingService.TChangeStatusWithApproved(booking);
+            return Ok();
+        }
+
+        [HttpPut("ChangeStatusWithApprovedWithID")]
+        public IActionResult ChangeStatusWithApprovedwithID(int id)
+        {
+            bookingService.TChangeStatusToApprovedWithId(id);
+            return Ok();
+        }
     }
 }

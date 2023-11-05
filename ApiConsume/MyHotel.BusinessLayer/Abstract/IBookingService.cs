@@ -9,6 +9,7 @@ namespace MyHotel.BusinessLayer.Abstract
 {
     public interface IBookingService : IGenericService<Booking>
     {
-
+        public void TChangeStatusWithApproved(Booking booking);
+        void TChangeStatusToApprovedWithId(int id);
     }
 }

@@ -17,5 +17,28 @@ namespace MyHotel.DataAccessLayer.Concrete.EfCore
             this.db = db;
         }
 
+        public void ChangeStatusWithApproved(Booking booking)
+        {
+            var reservation = db.Bookings.Where(x => x.BookingId == booking.BookingId).FirstOrDefault();
+
+            if (reservation != null)
+            {
+                reservation.Status = "Onaylandı";
+                db.Update(reservation);
+                db.SaveChanges();
+            }
+        }
+
+        public void ChangeStatusToApprovedWithId(int id)
+        {
+            var reservation = db.Bookings.Find(id);
+
+            if (reservation != null)
+            {
+                reservation.Status = "Onaylandı";
+                db.Update(reservation);
+                db.SaveChanges();
+            }
+        }
     }
 }

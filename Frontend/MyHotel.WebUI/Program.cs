@@ -14,6 +14,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer("Server=.\\SQLEXPRESS;Database=MyHotelDb;Integrated Security=true;"));
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
 
+builder.Services.AddScoped<IBookingService, BookingManager>();
+builder.Services.AddScoped<IBookingRepository, EfCoreBookingRepository>();
+
 builder.Services.AddHttpClient();
 
 builder.Services.AddAutoMapper(typeof(Program));
