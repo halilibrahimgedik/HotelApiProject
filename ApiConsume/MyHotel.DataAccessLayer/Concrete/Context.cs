@@ -30,5 +30,7 @@ namespace MyHotel.DataAccessLayer.Concrete
 
         public DbSet<Booking> Bookings { get; set; }
 
+        public DbSet<Guest> Guests { get; set; }
+
     }
 }

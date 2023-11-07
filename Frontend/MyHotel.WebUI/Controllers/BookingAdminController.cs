@@ -37,10 +37,12 @@ namespace MyHotel.WebUI.Controllers
             return View();
         }
 
-        public IActionResult ApproveStatus(int id)
+        public IActionResult ApproveStatus(int? id)
         {
-            _bookingService.TChangeStatusToApprovedWithId(id);
-
+            if (id != null)
+            {
+                _bookingService.TChangeStatusToApprovedWithId((int)id);
+            }
 
             //var client = _httpClientFactory.CreateClient();
             //var responseMessage = await client.GetAsync("http://localhost:5120/api/reservation/"+id);
