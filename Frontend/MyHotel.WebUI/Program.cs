@@ -21,6 +21,11 @@ builder.Services.AddHttpClient();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -37,6 +37,8 @@ builder.Services.AddScoped<ITestimonialRepository, EfCoreTestimonialRepository>(
 builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IAboutRepository, EfCoreAboutRepository>();
 
+builder.Services.AddScoped<IContactService, ContactManager>();
+builder.Services.AddScoped<IContactRepository, EfCoreContactRepository>();
 
 
 builder.Services.AddAutoMapper(typeof(Program));
