@@ -40,6 +40,9 @@ builder.Services.AddScoped<IAboutRepository, EfCoreAboutRepository>();
 builder.Services.AddScoped<IContactService, ContactManager>();
 builder.Services.AddScoped<IContactRepository, EfCoreContactRepository>();
 
+builder.Services.AddScoped<IGuestService, GuestManager>();
+builder.Services.AddScoped<IGuestRepository, EfCoreGuestRepository>();
+
 
 builder.Services.AddAutoMapper(typeof(Program));
 
