@@ -10,6 +10,6 @@
 
         public string Surname { get; set; }
 
-        public byte Age { get; set; }
+        public int Age { get; set; }
     }
 }

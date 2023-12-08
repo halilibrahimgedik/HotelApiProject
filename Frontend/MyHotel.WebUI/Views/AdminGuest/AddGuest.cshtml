@@ -7,23 +7,27 @@
 <form method="post">
 
     <div class="form-group">
-        <label>Misafir ad</label>
+        <label>Misafir Ad</label>
         <input type="text" asp-for="Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
 
     <div class="form-group">
         <label>Misafir Soyad</label>
         <input type="text" asp-for="Surname" class="form-control" />
+        <span class="text-danger" asp-validation-for="Surname"></span>
     </div>
 
     <div class="form-group">
         <label>Misafir TC</label>
         <input type="text" asp-for="GuestIdentityNo" class="form-control" />
+        <span class="text-danger" asp-validation-for="GuestIdentityNo"></span>
     </div>
 
     <div class="form-group">
         <label>Misafir Yaş</label>
         <input type="text" asp-for="Age" class="form-control" />
+        <span class="text-danger" asp-validation-for="Age"></span>
     </div>
 
 

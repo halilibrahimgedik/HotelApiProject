@@ -7,25 +7,30 @@
 <form method="post">
 
     <input type="hidden" asp-for="GuestId"/>
+    <div class="text-danger" asp-validation-summary="All"></div>
 
     <div class="form-group">
         <label>Misafir ad</label>
         <input type="text" asp-for="Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
 
     <div class="form-group">
         <label>Misafir Soyad</label>
         <input type="text" asp-for="Surname" class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
 
     <div class="form-group">
         <label>Misafir TC</label>
         <input type="text" asp-for="GuestIdentityNo" class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
 
     <div class="form-group">
         <label>Misafir Yaş</label>
         <input type="text" asp-for="Age" class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
 
 

@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using MyHotel.BusinessLayer.Abstract;
 using MyHotel.BusinessLayer.Concrete;
@@ -5,11 +7,16 @@ using MyHotel.DataAccessLayer.Abstract;
 using MyHotel.DataAccessLayer.Concrete;
 using MyHotel.DataAccessLayer.Concrete.EfCore;
 using MyHotel.EntityLayer.Concrete;
+using MyHotel.WebUI.DTOs.GuestDto;
+using MyHotel.WebUI.ValidationRules.GuestValidationRules;
+using System.ComponentModel.DataAnnotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters().AddValidatorsFromAssemblyContaining<Program>(); //!Toplu validator
 
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer("Server=.\\SQLEXPRESS;Database=MyHotelDb;Integrated Security=true;"));
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
