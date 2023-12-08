@@ -26,7 +26,6 @@ namespace MyHotel.WebApi.Controllers
         [HttpPost]
         public IActionResult AddContact(Contact contact)
         {
-            contact.Date = Convert.ToDateTime(DateTime.Now.ToString());
             contactService.TAdd(contact);
             return Ok();
         }

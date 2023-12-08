@@ -42,7 +42,7 @@ namespace MyHotel.WebUI.Controllers
                 dto.Name = string.Join(" ", nameParts);
             }
 
-            dto.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            //dto.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
 
             var client = httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(dto);

@@ -16,6 +16,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Mssql")));
 
+builder.Services.AddScoped<IContactService,ContactManager>();
+builder.Services.AddScoped<IContactRepository,EfCoreContactRepository>();
+
 builder.Services.AddScoped<IBookingService, BookingManager>();
 builder.Services.AddScoped<IBookingRepository, EfCoreBookingRepository>();
 

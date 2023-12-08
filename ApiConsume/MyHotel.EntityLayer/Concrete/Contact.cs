@@ -18,6 +18,6 @@ namespace MyHotel.EntityLayer.Concrete
 
         public string Message { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; } = DateTime.UtcNow.ToString();
     }
 }

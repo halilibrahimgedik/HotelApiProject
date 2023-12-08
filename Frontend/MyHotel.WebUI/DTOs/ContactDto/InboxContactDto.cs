@@ -1,7 +1,9 @@
 ﻿namespace MyHotel.WebUI.DTOs.ContactDto
 {
-    public class AddContactDto
+    public class InboxContactDto
     {
+        public int ContactId { get; set; }
+
         public string Name { get; set; }
 
         public string Mail { get; set; }
