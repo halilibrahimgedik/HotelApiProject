@@ -16,6 +16,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Mssql")));
 
+builder.Services.AddScoped<ISendMessageService,SendMessageManager>();
+builder.Services.AddScoped<ISendMessageRepository, EfCoreSendMessageRepository>();
+
 builder.Services.AddScoped<IContactService,ContactManager>();
 builder.Services.AddScoped<IContactRepository,EfCoreContactRepository>();
 

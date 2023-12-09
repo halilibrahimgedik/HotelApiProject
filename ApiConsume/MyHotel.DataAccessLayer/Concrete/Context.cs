@@ -34,5 +34,7 @@ namespace MyHotel.DataAccessLayer.Concrete
 
         public DbSet<Contact> Contacts { get; set; }
 
+        public DbSet<SendMessage> SendMessages { get; set; }
+
     }
 }
