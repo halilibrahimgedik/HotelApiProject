@@ -1,13 +1,13 @@
-﻿@model List<InboxContactDto>
+﻿@model List<SendBoxDto>
 
 @{
-    ViewData["Title"] = "Inbox";
+    ViewData["Title"] = "SendBox";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
 
 <div class="email-left-box">
-    <a asp-controller="AdminContact" asp-action="Inbox" class="btn btn-primary btn-block">Inbox</a>
+    <a asp-controller="AdminContact" asp-action="SendBox" class="btn btn-primary btn-block">SendBox</a>
 
     @await Html.PartialAsync("SideBarAdminContactPartial")
 
@@ -18,18 +18,20 @@
 </div>
 
 <div class="email-right-box">
-    <div role="toolbar" class="toolbar">
+    <div role="toolbar" class="toolbar mb-4">
         <div class="btn-group">
             <button class="btn btn-dark- MÖÇ:ÇŞ98" type="button">
-                Gelen Mesajlar <span class="caret m-l-5"></span>
+                Gönderilen Mesajlar <span class="caret m-l-5"></span>
             </button>
         </div>
     </div>
     <div class="email-list m-t-15">
         @foreach (var item in Model)
         {
+            <b class="text-danger mx-3 my-3">Başlık : </b>
+            @item.Title
             <div class="message">
-                <a href="/AdminContact/InboxMessageDetails/@item.ContactId">
+                <a href="/AdminContact/SendBoxMessageDetails/@item.SendMessageId">
                     <div class="col-mail col-mail-1">
                         <div class="email-checkbox">
                             <input type="checkbox" id="chk2">
@@ -38,7 +40,7 @@
                     </div>
                     <div class="col-mail col-mail-2">
                         <div class="subject">
-                            @item.Message
+                            @item.Content
                         </div>
                         <div class="date" style="width:auto">@item.Date</div>
                     </div>

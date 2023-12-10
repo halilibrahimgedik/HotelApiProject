@@ -45,9 +45,10 @@ namespace MyHotel.WebApi.Controllers
             contactService.TUpdate(contact);
             return Ok();
         }
-
+        
+        //! Inbox daki Gelen mesajı görüntüleme 
         [HttpGet("{id}")]
-        public IActionResult GetContact(int id)
+        public IActionResult GetComingMessage(int id)
         {
             var contact = contactService.TGetById(id);
             return Ok(contact);

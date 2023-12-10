@@ -45,10 +45,10 @@ namespace MyHotel.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetSendMessage(int id)
+        public IActionResult GetSentMessage(int id)
         {
-            var sendMessage = _sendMessageService.TGetById(id);
-            return Ok(sendMessage);
+            var sentMessage = _sendMessageService.TGetById(id);
+            return Ok(sentMessage);
         }
     }
 }

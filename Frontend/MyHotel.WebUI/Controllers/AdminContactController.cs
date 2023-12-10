@@ -38,12 +38,29 @@ namespace MyHotel.WebUI.Controllers
             return View();
         }
 
+        public async Task<IActionResult> SendBox()
+        {
+            var client = httpClientFactory.CreateClient();
+
+            var responseMessage = await client.GetAsync(configuration.GetValue<String>("ApiClient") + "/SendMessage");
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var messages = JsonConvert.DeserializeObject<List<SendBoxDto>>(jsonData);
+
+                return View(messages);
+            }
+
+            return View();
+        }
+
+
         [HttpGet]
         public IActionResult AddSendMessage()
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> AddSendMessage(CreateSendMessageDto model)
         {
@@ -62,6 +79,40 @@ namespace MyHotel.WebUI.Controllers
 
             return View();
         }
+
+
+        public async Task<IActionResult> SendBoxMessageDetails(int id=0)
+        {
+            var client = httpClientFactory.CreateClient();
+            var responsMessage = await client.GetAsync(configuration.GetValue<string>("ApiClient")+"/SendMessage/"+id);
+            
+            if (responsMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responsMessage.Content.ReadAsStringAsync();
+                var datas = JsonConvert.DeserializeObject<ReadMessageDetailDto>(jsonData);
+
+                return View(datas);
+            }
+
+            return View();
+        }
+
+        public async Task<IActionResult> InboxMessageDetails(int id = 0)
+        {
+            var client = httpClientFactory.CreateClient();
+            var responsMessage = await client.GetAsync(configuration.GetValue<string>("ApiClient") + "/contact/" + id);
+
+            if (responsMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responsMessage.Content.ReadAsStringAsync();
+                var datas = JsonConvert.DeserializeObject<GetMessageByIdDto>(jsonData);
+
+                return View(datas);
+            }
+
+            return View();
+        }
+
 
         public PartialViewResult SideBarAdminContactPartial()
         {
