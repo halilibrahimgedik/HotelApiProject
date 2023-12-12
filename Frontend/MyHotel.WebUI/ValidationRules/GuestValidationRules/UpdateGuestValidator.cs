@@ -3,9 +3,9 @@ using MyHotel.WebUI.DTOs.GuestDto;
 
 namespace MyHotel.WebUI.ValidationRules.GuestValidationRules
 {
-    public class UpdateGuestValidationRules : AbstractValidator<UpdateGuestDto>
+    public class UpdateGuestValidator : AbstractValidator<UpdateGuestDto>
     {
-        public UpdateGuestValidationRules()
+        public UpdateGuestValidator()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("Ad alanı boş geçilemez.")
                 .MinimumLength(2).WithMessage("Ad alanına en az 2 karakter giriniz.")
