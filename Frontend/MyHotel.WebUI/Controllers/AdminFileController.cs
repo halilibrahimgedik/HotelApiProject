@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 
 namespace MyHotel.WebUI.Controllers
 {
-    public class AdminImageFileController : Controller
+    public class AdminFileController : Controller
     {
         [HttpGet]
         public IActionResult Index()
@@ -25,7 +25,7 @@ namespace MyHotel.WebUI.Controllers
             multipartFormDataContent.Add(byteArrayContent, "file", file.FileName);
 
             var httpClient = new HttpClient();
-            var responseMessage = await httpClient.PostAsync("http://localhost:5120/api/FileImage", multipartFormDataContent);
+            var responseMessage = await httpClient.PostAsync("http://localhost:5120/api/FileOperation", multipartFormDataContent);
 
             return View();
         }
