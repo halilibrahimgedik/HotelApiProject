@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyHotel.EntityLayer.Concrete;
 using MyHotel.WebUI.DTOs.LoginDto;
 
 namespace MyHotel.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
 

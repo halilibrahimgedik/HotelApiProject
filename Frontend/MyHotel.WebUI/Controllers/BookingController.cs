@@ -1,4 +1,5 @@
 ﻿using Humanizer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyHotel.EntityLayer.Concrete;
 using MyHotel.WebUI.DTOs.BookingDto;
@@ -7,6 +8,7 @@ using System.Text;
 
 namespace MyHotel.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class BookingController : Controller
     {
         private readonly IHttpClientFactory httpClientFactory;
