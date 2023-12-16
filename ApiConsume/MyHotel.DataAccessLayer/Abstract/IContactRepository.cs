@@ -9,6 +9,7 @@ namespace MyHotel.DataAccessLayer.Abstract
 {
     public interface IContactRepository : IGenericRepository<Contact>
     {
+        public int GetContactCount();
 
     }
 }

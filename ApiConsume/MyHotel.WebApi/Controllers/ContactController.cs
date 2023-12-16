@@ -53,5 +53,12 @@ namespace MyHotel.WebApi.Controllers
             var contact = contactService.TGetById(id);
             return Ok(contact);
         }
+        // ! Inbox'a gelen mesaj sayısı 
+        [HttpGet("GetContactCount")]
+        public IActionResult GetContactCount()
+        {
+            return Ok(contactService.TGetContactCount());
+        }
+
     }
 }

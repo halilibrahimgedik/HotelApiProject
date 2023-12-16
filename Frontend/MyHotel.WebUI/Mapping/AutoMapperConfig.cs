@@ -11,6 +11,7 @@ using MyHotel.WebUI.DTOs.StaffDto;
 using MyHotel.WebUI.DTOs.SubscribeDto;
 using MyHotel.WebUI.DTOs.TestimonialDto;
 using MyHotel.WebUI.DTOs.GuestDto;
+using MyHotel.WebUI.DTOs.MessageCategoryDto;
 
 namespace MyHotel.WebUI.Mapping
 {
@@ -40,6 +41,8 @@ namespace MyHotel.WebUI.Mapping
 
             CreateMap<CreateGuestDto,Guest>().ReverseMap();
             CreateMap<UpdateGuestDto,Guest>().ReverseMap();
+
+            CreateMap<ListMessageCategoryDto,MessageCategory>().ReverseMap();
         }
     }
 }

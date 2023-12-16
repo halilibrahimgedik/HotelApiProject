@@ -19,5 +19,9 @@ namespace MyHotel.EntityLayer.Concrete
         public string Message { get; set; }
 
         public string Date { get; set; } = DateTime.UtcNow.ToString();
+
+
+        public int MessageCategoryId { get; set; }
+        public MessageCategory? MessageCategory { get; set; }
     }
 }

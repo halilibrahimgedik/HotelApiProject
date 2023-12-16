@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using MyHotel.EntityLayer.Concrete;
 using MyHotel.WebUI.DTOs.BookingDto;
 using MyHotel.WebUI.DTOs.ContactDto;
+using MyHotel.WebUI.DTOs.MessageCategoryDto;
+using MyHotel.WebUI.Models.Staff;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
@@ -17,16 +21,35 @@ namespace MyHotel.WebUI.Controllers
             this.httpClientFactory = httpClientFactory;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+
+            var client = httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:5120/api/messageCategory");
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ListMessageCategoryDto>>(jsonData);
+
+                if (values != null)
+                {
+                    ViewBag.MessageCategories = new SelectList(values, "MessageCategoryId", "MessageCategoryName");
+
+                    return View();
+                }
+            }
+
             return View();
         }
+
 
         [HttpGet]
         public PartialViewResult SendMessage()
         {
             return PartialView();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> SendMessage(AddContactDto dto)
@@ -44,19 +67,20 @@ namespace MyHotel.WebUI.Controllers
                 dto.Name = string.Join(" ", nameParts);
             }
 
-            //dto.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
-
-            var client = httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(dto);
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("http://localhost:5120/api/contact", content);
-
-            if (response.IsSuccessStatusCode)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index");
+                var client = httpClientFactory.CreateClient();
+                var jsonData = JsonConvert.SerializeObject(dto);
+                StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync("http://localhost:5120/api/contact", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
             }
 
-            return View();
+            return NotFound();
 
         }
     }

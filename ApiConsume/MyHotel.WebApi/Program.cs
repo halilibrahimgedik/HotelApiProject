@@ -16,6 +16,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Mssql")));
 
+builder.Services.AddScoped<IMessageCategoryService,MessageCategoryManager>();
+builder.Services.AddScoped<IMessageCategoryRepository, EfCoreMessageCategoryRepository>();
+
 builder.Services.AddScoped<ISendMessageService,SendMessageManager>();
 builder.Services.AddScoped<ISendMessageRepository, EfCoreSendMessageRepository>();
 

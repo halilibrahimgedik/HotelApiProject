@@ -1,4 +1,6 @@
-﻿namespace MyHotel.WebUI.DTOs.ContactDto
+﻿using MyHotel.EntityLayer.Concrete;
+
+namespace MyHotel.WebUI.DTOs.ContactDto
 {
     public class InboxContactDto
     {
@@ -13,5 +15,8 @@
         public string Message { get; set; }
 
         public string Date { get; set; } = DateTime.Now.ToString();
+
+
+        public int MessageCategoryId { get; set; }
     }
 }

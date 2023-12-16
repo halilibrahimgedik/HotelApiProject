@@ -10,8 +10,17 @@ namespace MyHotel.DataAccessLayer.Concrete.EfCore
 {
     public class EfCoreContactRepository : GenericRepository<Contact>, IContactRepository
     {
+        private readonly Context context;
         public EfCoreContactRepository(Context db) : base(db)
         {
+            context = db;
+        }
+
+
+        public int GetContactCount()
+        {
+            return context.Contacts.Count();
+            
         }
     }
 }

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyHotel.BusinessLayer.Abstract
+namespace MyHotel.DataAccessLayer.Abstract
 {
-    public interface ISendMessageService : IGenericService<SendMessage>
+    public interface IMessageCategoryRepository : IGenericRepository<MessageCategory>
     {
-        public int TGetSentMessageCount();
+
     }
 }

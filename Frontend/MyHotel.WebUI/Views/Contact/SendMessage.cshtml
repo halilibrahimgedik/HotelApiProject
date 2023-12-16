@@ -1,5 +1,7 @@
 ﻿@model AddContactDto 
 
+@* SendMEssage.cshtml sayfası *@
+
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -48,10 +50,19 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
+                                    <select asp-for="MessageCategoryId" asp-items="@ViewBag.MessageCategories" class="form-control" placeholder="Konu Başlığı">
+                                        <option selected disabled>Lütfen bir konu başlığı seçiniz</option>
+                                    </select>
+                                </div>
+                               
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" placeholder="Konu" asp-for="Subject">
-                                    <label asp-for="Subject"> Konu Başlığı </label>
+                                    <label asp-for="Subject"> Konu </label>
                                 </div>
                             </div>
+
                             <div class="col-12">
                                 <div class="form-floating">
                                     <textarea class="form-control" placeholder="Lütfen mesajınızı giriniz" id="message" style="height: 150px" asp-for="Message"></textarea>

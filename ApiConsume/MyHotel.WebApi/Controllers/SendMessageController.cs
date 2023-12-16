@@ -50,5 +50,12 @@ namespace MyHotel.WebApi.Controllers
             var sentMessage = _sendMessageService.TGetById(id);
             return Ok(sentMessage);
         }
+
+        // ! Gönderilen maillerin sayısını çekme
+        [HttpGet("GetSentMessageCount")]
+        public IActionResult GetSentMessageCount()
+        {
+            return Ok(_sendMessageService.TGetSentMessageCount());
+        }
     }
 }

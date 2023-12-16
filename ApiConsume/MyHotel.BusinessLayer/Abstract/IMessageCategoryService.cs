@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyHotel.BusinessLayer.Abstract
 {
-    public interface ISendMessageService : IGenericService<SendMessage>
+    public interface IMessageCategoryService : IGenericService<MessageCategory>
     {
-        public int TGetSentMessageCount();
+
     }
 }

@@ -40,6 +40,11 @@ namespace MyHotel.BusinessLayer.Concrete
             return sendMessageRepository.GetById(id);
         }
 
+        public int TGetSentMessageCount()
+        {
+            return sendMessageRepository.GetSentMessageCount();
+        }
+
         public void TUpdate(SendMessage entity)
         {
             sendMessageRepository.Update(entity);

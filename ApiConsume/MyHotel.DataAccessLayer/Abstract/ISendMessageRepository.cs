@@ -9,6 +9,6 @@ namespace MyHotel.DataAccessLayer.Abstract
 {
     public interface ISendMessageRepository : IGenericRepository<SendMessage>
     {
-
+        public int GetSentMessageCount();
     }
 }
