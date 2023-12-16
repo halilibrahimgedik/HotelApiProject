@@ -1,4 +1,4 @@
-﻿
+﻿@model string
 @{
     Layout = null;
 }
@@ -41,14 +41,29 @@
                         <div class="card mb-0">
                             <div class="card-body text-center pt-5">
                                 <h1 class="error-text text-primary">Ooppss !</h1>
-                                <h4 class="mt-4"><i class="fa fa-thumbs-down text-danger"></i> Sayfa Bulunamadı</h4>
-                                <p>Kayıp mı oldun ?</p>
-                                <form class="mt-5 mb-5">
+                                
+                                @if (!string.IsNullOrEmpty(Model))
+                                {
+                                    <h3 class="mt-4 text-danger"> Lütfen Formu Eksiksiz ve Düzgün Bir Şekilde Doldurun </h3>
+                                    <form class="mt-5 mb-5">
 
-                                    <div class="text-center mb-4 mt-4">
-                                        <a href="/Default/Index" class="btn btn-primary">Ana Sayfaya Dön</a>
-                                    </div>
-                                </form>
+                                        <div class="text-center mb-4 mt-4">
+                                            <a href="/Contact/Index" class="btn btn-primary">İletişim Sayfasına Geri Dön</a>
+                                        </div>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <h4 class="mt-4"><i class="fa fa-thumbs-down text-danger"></i> Sayfa Bulunamadı</h4>
+                                    <p>Kayıp mı Oldun ?</p>
+                                    <form class="mt-5 mb-5">
+
+                                        <div class="text-center mb-4 mt-4">
+                                            <a href="/Default/Index" class="btn btn-primary">Ana Sayfaya Dön</a>
+                                        </div>
+                                    </form>
+                                }
+                               
                                 <div class="text-center">
                                     <ul class="list-inline">
                                         <li class="list-inline-item">

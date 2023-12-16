@@ -50,7 +50,7 @@ namespace MyHotel.WebUI.Controllers
             return PartialView();
         }
 
-
+        
         [HttpPost]
         public async Task<IActionResult> SendMessage(AddContactDto dto)
         {
@@ -80,7 +80,7 @@ namespace MyHotel.WebUI.Controllers
                 }
             }
 
-            return NotFound();
+            return View("/Views/ErrorPage/Error404.cshtml","hatalı form gönderimi");
 
         }
     }

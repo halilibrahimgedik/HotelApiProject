@@ -36,16 +36,19 @@
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
                     <form method="post" asp-action="SendMessage" asp-controller="Contact">
                         <div class="row g-3">
+                            <div class="text-danger" asp-validation-summary="All"></div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="name" placeholder="Adınız ve Soyadınız" asp-for="Name">
                                     <label asp-for="Name">Adınız ve Soyadınız</label>
+                                    <span class="text-danger" asp-validation-for="Name"></span>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="email" class="form-control" id="email" placeholder="Mail" asp-for="Mail">
                                     <label for="email">Mail</label>
+                                    <span class="text-danger" asp-validation-for="Mail"></span>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -53,6 +56,7 @@
                                     <select asp-for="MessageCategoryId" asp-items="@ViewBag.MessageCategories" class="form-control" placeholder="Konu Başlığı">
                                         <option selected disabled>Lütfen bir konu başlığı seçiniz</option>
                                     </select>
+                                    <span class="text-danger" asp-validation-for="MessageCategoryId"></span>
                                 </div>
                                
                             </div>
@@ -60,6 +64,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" placeholder="Konu" asp-for="Subject">
                                     <label asp-for="Subject"> Konu </label>
+                                    <span class="text-danger" asp-validation-for="Subject"></span>
                                 </div>
                             </div>
 
@@ -67,6 +72,7 @@
                                 <div class="form-floating">
                                     <textarea class="form-control" placeholder="Lütfen mesajınızı giriniz" id="message" style="height: 150px" asp-for="Message"></textarea>
                                     <label asp-for="Message">Mesaj</label>
+                                    <span class="text-danger" asp-validation-for="Message"></span>
                                 </div>
                             </div>
                             <div class="col-12">
