@@ -38,6 +38,7 @@ namespace MyHotel.WebUI.Controllers
                 Surname = newUser.Surname,
                 Email = newUser.Mail,
                 UserName = newUser.UserName,
+                ImageUrl = "/adminweb/images/avatar/filler.png",
             };
 
             // burada istersek email yada username kontrolü yapabiliriz diğer kullanıcılar ile aynı olmaması için
