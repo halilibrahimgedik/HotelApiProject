@@ -52,6 +52,9 @@ builder.Services.AddScoped<IContactRepository, EfCoreContactRepository>();
 builder.Services.AddScoped<IGuestService, GuestManager>();
 builder.Services.AddScoped<IGuestRepository, EfCoreGuestRepository>();
 
+builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
+builder.Services.AddScoped<IWorkLocationRepository, EfCoreWorkLocationRepository>();
+
 
 builder.Services.AddAutoMapper(typeof(Program));
 

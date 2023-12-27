@@ -36,5 +36,7 @@ namespace MyHotel.DataAccessLayer.Concrete
 
         public DbSet<SendMessage> SendMessages { get; set; }
 
+        public DbSet<WorkLocation> WorkLocations { get; set; }
+
     }
 }

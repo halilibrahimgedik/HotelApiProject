@@ -25,5 +25,7 @@ namespace MyHotel.WebUI.DTOs.RegisterDto
         [Required]
         [DataType(DataType.Password)]
         public string Repassword { get; set; }
+
+        public int WorkLocationId { get; set; }
     }
 }

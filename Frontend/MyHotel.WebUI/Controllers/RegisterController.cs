@@ -39,6 +39,8 @@ namespace MyHotel.WebUI.Controllers
                 Email = newUser.Mail,
                 UserName = newUser.UserName,
                 ImageUrl = "/adminweb/images/avatar/filler.png",
+                WorkLocationId = 1,
+                WorkDepartment = "Atanmadı",
             };
 
             // burada istersek email yada username kontrolü yapabiliriz diğer kullanıcılar ile aynı olmaması için
