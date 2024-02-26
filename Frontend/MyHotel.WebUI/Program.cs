@@ -52,7 +52,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddScoped<IBookingService, BookingManager>();
 builder.Services.AddScoped<IBookingRepository, EfCoreBookingRepository>();
 
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient(); // Httpclient injection
 
 builder.Services.AddAutoMapper(typeof(Program));
 
